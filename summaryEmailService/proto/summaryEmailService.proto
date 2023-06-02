@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package summaryEmailService;
+option go_package = "/proto;greeter";
+
+// protoc --proto_path=. --micro_out=summaryEmailService --go_out=summaryEmailService summaryEmailService/proto/summaryEmailService.proto
+service SummaryAccount {
+	rpc GetSummaryAccount(Request) returns (Response) {}
+}
+
+message Request {
+	string name = 1;
+}
+
+message Response {
+	AccountData data = 1;
+}
+
+message AccountData {
+	string id = 1;
+	string date = 2;
+	string transaction = 3;
+}
